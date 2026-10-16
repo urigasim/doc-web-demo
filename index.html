@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#f2f5fa" />
+  <title>DGC | 초동대응 플랫폼</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <div class="brand-lockup">
+        <div class="brand-mark">DGC</div>
+        <div class="brand-copy"><strong>초동대응 플랫폼</strong><span>SAFETY OPERATIONS</span></div>
+        <button class="sidebar-close" id="sidebarClose" aria-label="메뉴 닫기">×</button>
+      </div>
+
+      <div class="workspace-label">WORKSPACE</div>
+      <nav class="primary-nav" aria-label="주 메뉴">
+        <button class="nav-item active" data-page="overview"><span class="nav-icon">▦</span><span>통합 관제</span><span class="nav-count">LIVE</span></button>
+        <button class="nav-item" data-page="cctv"><span class="nav-icon">◉</span><span>CCTV 감시</span><span class="nav-pip" style="background:#4c8dff"></span></button>
+        <button class="nav-item" data-page="incident"><span class="nav-icon">◈</span><span>사고 초동대응</span><span class="nav-pip danger"></span></button>
+        <button class="nav-item" data-page="workers"><span class="nav-icon">♙</span><span>작업자</span></button>
+        <button class="nav-item" data-page="robots"><span class="nav-icon">⬡</span><span>로봇</span></button>
+        <button class="nav-item" data-page="rules"><span class="nav-icon">⌗</span><span>도면 · 규칙</span></button>
+        <button class="nav-item" data-page="settings"><span class="nav-icon">⚙</span><span>설정</span></button>
+        <button class="nav-item" data-page="reports"><span class="nav-icon">▤</span><span>보고서</span></button>
+      </nav>
+
+      <div class="sidebar-bottom">
+        <div class="connection-card">
+          <div class="connection-top"><span class="live-dot"></span><span>시스템 상태</span><span class="connection-status">데모 연결</span></div>
+          <div class="connection-line"><span>4티어 처리 상태</span><strong>정상</strong></div>
+          <div class="mini-progress"><span style="width: 92%"></span></div>
+          <div class="connection-meta"><span>지연 시간</span><strong>42 ms</strong></div>
+        </div>
+        <div class="user-card"><div class="avatar">관</div><div class="user-meta"><strong>관제 담당자</strong><span>안전 운영팀</span></div><span class="user-menu">···</span></div>
+      </div>
+    </aside>
+
+    <div class="mobile-scrim" id="mobileScrim"></div>
+    <main class="main-area">
+      <header class="topbar">
+        <div class="topbar-left">
+          <button class="mobile-menu" id="mobileMenu" aria-label="메뉴 열기">☰</button>
+          <div class="breadcrumb"><span>DGC</span><span class="crumb-divider">/</span><strong id="currentSection">통합 관제</strong></div>
+        </div>
+        <div class="topbar-right">
+          <div class="system-health"><span class="live-dot"></span><span>시스템 정상</span></div>
+          <span class="topbar-divider"></span>
+          <div class="clock-block"><strong id="clock">--:--:--</strong><span id="dateStamp">2026.10.16</span></div>
+          <span class="demo-badge">DEMO DATA</span>
+          <button class="button button-ghost button-sm" data-action="add-demo-event"><span class="button-icon">＋</span> 데모 이벤트</button>
+        </div>
+      </header>
+      <section id="appView" class="page-view" aria-live="polite"></section>
+      <footer class="app-footer"><span>© DGC · 자체 웹 플랫폼 설계안</span><span>실제 장비·서버와 연결되지 않은 화면 시연용 프로토타입입니다.</span></footer>
+    </main>
+  </div>
+  <div class="toast-region" id="toastRegion" aria-live="polite" aria-atomic="true"></div>
+  <input id="mapFileInput" type="file" accept=".png,.jpg,.jpeg,.webp,.svg,.pdf,image/png,image/jpeg,image/webp,image/svg+xml,application/pdf" hidden />
+  <div class="detail-modal" id="detailModal" hidden role="dialog" aria-modal="true" aria-labelledby="detailTitle">
+    <button class="detail-backdrop" data-modal-close aria-label="설명 닫기"></button>
+    <section class="detail-dialog">
+      <div class="detail-dialog-top"><div><div class="detail-eyebrow" id="detailEyebrow">기능 설명</div><h2 id="detailTitle">기능 상세 설명</h2></div><button class="detail-close" data-modal-close aria-label="닫기">×</button></div>
+      <div class="detail-body" id="detailBody"></div>
+      <div class="detail-dialog-footer"><span> DGC 초안 · 데모 데이터 기준</span><button class="button button-primary" data-modal-close>확인</button></div>
+    </section>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
